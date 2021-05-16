@@ -3,7 +3,7 @@
 
 ## Environment Preparation
 1. Install JAVA
-2. Instal Maven
+2. Install Maven
 3. SDK 16.0
 
 ## How it work
@@ -15,7 +15,7 @@ Test kind: **Class**
 
 Class: **Runner.Runner**
 
-If IntelliJ does not recognize PageMangement is Test Sources Root, please mark as Test Sources Root
+If IntelliJ does not recognize PageManagement is Test Sources Root, please mark as Test Sources Root
 
 
 In VM Command, please insert this command:
@@ -26,7 +26,7 @@ In VM Command, please insert this command:
 
 Then, click run
 
-The Test will contains all the steps from
+The Test will contain all the steps from
 - Navigate to https://openweathermap.org
 - Type "thanh pho Ho Chi Minh, VN" into Search box on Navigation Bar
 - Click Enter key
@@ -41,7 +41,7 @@ The Test will contains all the steps from
   
   -- **Core Management folder:** Store setup driver, and all action reference with driver
   
-  -- **Page Definition folder**: Stroe all defintion needed for Cucumber running 
+  -- **Page Definition folder**: Stroe all definition needed for Cucumber running 
   
   -- **Page Object Management**: Store all page object function (action/assertion).
 
@@ -51,7 +51,7 @@ The Test will contains all the steps from
 - **Test Suite**
     - **F_01_Search**: contains the test script
 
-Config file locate at same level at src folder in project strucutre:
+Config file locate at same level at src folder in project structure:
 - **config.properties**
   
   -- MAIN_URL = https://openweathermap.org
@@ -60,8 +60,16 @@ Config file locate at same level at src folder in project strucutre:
  
   -- VERSION = 89
 
-The browser in framework is only support Chrome and Firefox
+The browser in the framework is only support Chrome and Firefox
 
 ** Note: There also has a another way to set Browser and Version by VM Command.
 
     -ea -DBROWSER=Chrome -DVERSION=89 Dcucumber.filter.tags="@NABTest"
+
+## Report
+This framework using Allure Report.
+
+1. Install Allure Report.
+2. Using Terminal (on Mac) or Command Prompt (on Windows) and navigate to the source code. After run successfully. the report will generate into target/allure-reports.
+3. Navigate into target folder, and using command `allure serve` to generate the report.
+

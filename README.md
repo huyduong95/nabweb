@@ -70,6 +70,6 @@ The browser in the framework is only support Chrome and Firefox
 This framework using Allure Report.
 
 1. Install Allure Report.
-2. Using Terminal (on Mac) or Command Prompt (on Windows) and navigate to the source code. After run successfully. the report will generate into target/allure-reports.
+2. Using Terminal (on Mac) or Command Prompt (on Windows) and navigate to the source code. After run successfully. the report will generate into target/allure-results.
 3. Navigate into target folder, and using command `allure serve` to generate the report.
 

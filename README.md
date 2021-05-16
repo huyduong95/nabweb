@@ -36,10 +36,15 @@ The Test will contains all the steps from
 
 **src.test:**
 - **PageManagement**
+  
   -- **Common folder**: store all file which has common function in here (E.g: read proeperties file)
+  
   -- **Core Management folder:** Store setup driver, and all action reference with driver
-  -- **Page Definition folder**: Stroe all defintion needed for Cucumber running
+  
+  -- **Page Definition folder**: Stroe all defintion needed for Cucumber running 
+  
   -- **Page Object Management**: Store all page object function (action/assertion).
+
   -- **Runner**: store runner configuration
 - **Resources**
   -- Store all needed properties file
@@ -48,8 +53,11 @@ The Test will contains all the steps from
 
 Config file locate at same level at src folder in project strucutre:
 - **config.properties**
+  
   -- MAIN_URL = https://openweathermap.org
+  
   -- BROWSER = Chrome
+ 
   -- VERSION = 89
 
 The browser in framework is only support Chrome and Firefox

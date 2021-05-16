@@ -1,8 +1,7 @@
-package PageManagement.ResultPage;
+package PageObjectManagement.ResultPage;
 
 import PageDefinition.AbstractPageDefinition;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 
 import java.util.Map;
 

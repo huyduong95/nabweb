@@ -1,4 +1,4 @@
-package PageManagement.MainPage;
+package PageObjectManagement.MainPage;
 
 import PageDefinition.AbstractPageDefinition;
 import org.openqa.selenium.WebElement;

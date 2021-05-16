@@ -1,9 +1,9 @@
-package PageManagement;
+package PageObjectManagement;
 
 import CoreManagement.DriverManager;
-import PageManagement.ResultPage.ResultPage;
-import PageManagement.MainPage.MainPage;
-import PageManagement.MainPage.NavigationBar;
+import PageObjectManagement.ResultPage.ResultPage;
+import PageObjectManagement.MainPage.MainPage;
+import PageObjectManagement.MainPage.NavigationBar;
 
 public class PageFactory {
 

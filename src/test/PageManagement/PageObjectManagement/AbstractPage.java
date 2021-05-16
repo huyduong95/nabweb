@@ -1,14 +1,7 @@
-package PageManagement;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-
-import java.security.Key;
+package PageObjectManagement;
 
 import static Common.CommonAction.getPropertyFromPropertiesFile;
 import static CoreManagement.ActionManager.*;
-import static CoreManagement.DriverManager.getDriver;
 
 public class AbstractPage {
     private String loadingIconXpath = "//div[@class='owm-loader']";
@@ -18,7 +11,7 @@ public class AbstractPage {
         String url = "";
         switch (pageName.toLowerCase()) {
             case "main":
-                url = getPropertyFromPropertiesFile("DomainEndpointPage", "MAIN_PAGE");
+                url = getPropertyFromPropertiesFile("config", "MAIN_URL");
         }
         return url;
     }

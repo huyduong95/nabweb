@@ -10,7 +10,7 @@ public class CommonAction {
     public static String getConfigData(String configDataName) {
         String configValue = System.getProperty(configDataName);
         if (configValue == null) {
-            configValue = getPropertyFromPropertiesFile("config.properties",configDataName);
+            configValue = getPropertyFromPropertiesFile("config",configDataName);
         }
         return configValue;
     }
@@ -22,7 +22,7 @@ public class CommonAction {
         try {
             String currentDir = System.getProperty("user.dir");
             String path = currentDir + "/src/test/resources/" + fileName + ".properties";
-            if(fileName.equalsIgnoreCase("config.properties")) {
+            if(fileName.equalsIgnoreCase("config")) {
                 path = currentDir + "/config.properties";
             }
             inputStream = new FileInputStream(path);

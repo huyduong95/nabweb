@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import java.util.List;
 import java.util.Map;
 
-import static PageManagement.PageFactory.getResultPage;
+import static PageObjectManagement.PageFactory.getResultPage;
 
 public class ResultPageDefinition {
 

@@ -1,6 +1,6 @@
-package PageManagement.MainPage;
+package PageObjectManagement.MainPage;
 
-import PageManagement.AbstractPage;
+import PageObjectManagement.AbstractPage;
 import org.openqa.selenium.WebElement;
 
 import static CoreManagement.ActionManager.*;

@@ -2,7 +2,7 @@ package PageDefinition.MainPage;
 
 import io.cucumber.java.en.And;
 
-import static PageManagement.PageFactory.getNavigationBar;
+import static PageObjectManagement.PageFactory.getNavigationBar;
 
 public class NavigationBarDefinition {
 

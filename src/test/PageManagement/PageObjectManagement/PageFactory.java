@@ -15,7 +15,7 @@ public class PageFactory {
 
     public static IPage getInstance(IPage iPage, String className) {
         try {
-            if (iPage == null) {
+            if (iPage == null || !iPage.getDriver().equals(DriverManager.getDriver())) {
                 iPage = (IPage) Class.forName(className).getConstructor(RemoteWebDriver.class).newInstance(DriverManager.getDriver());
             }
         } catch (Exception e) {

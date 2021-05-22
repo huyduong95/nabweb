@@ -12,7 +12,7 @@ import static Common.CommonAction.getConfigData;
 
 public class DriverManager {
 
-    public static WebDriver driver;
+    private static WebDriver driver;
 
     public static void initDriver() {
         String browser = getConfigData("BROWSER");

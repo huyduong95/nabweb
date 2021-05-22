@@ -1,39 +1,41 @@
 package PageObjectManagement;
 
 import CoreManagement.DriverManager;
+import CoreManagement.IPage;
 import PageObjectManagement.ResultPage.ResultPage;
 import PageObjectManagement.MainPage.MainPage;
 import PageObjectManagement.MainPage.NavigationBar;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class PageFactory {
 
-    private static DriverManager driverManager;
     private static MainPage mainPage;
     private static NavigationBar navigationBar;
     private static ResultPage resultPage;
 
-    public PageFactory(DriverManager driver) {
-        this.driverManager = driver;
+    public static IPage getInstance(IPage iPage, String className) {
+        try {
+            if (iPage == null) {
+                iPage = (IPage) Class.forName(className).getConstructor(RemoteWebDriver.class).newInstance(DriverManager.getDriver());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return iPage;
     }
 
     public static MainPage getMainPage() {
-        if (mainPage == null) {
-            mainPage = new MainPage();
-        }
+        mainPage = (MainPage) getInstance(mainPage, MainPage.class.getName());
         return mainPage;
     }
 
     public static NavigationBar getNavigationBar() {
-        if (navigationBar == null) {
-            navigationBar = new NavigationBar();
-        }
+        navigationBar = (NavigationBar) getInstance(navigationBar, NavigationBar.class.getName());
         return navigationBar;
     }
 
     public static ResultPage getResultPage() {
-        if (resultPage == null) {
-            resultPage = new ResultPage();
-        }
+        resultPage = (ResultPage) getInstance(resultPage, ResultPage.class.getName());
         return resultPage;
     }
 }

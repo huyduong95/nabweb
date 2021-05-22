@@ -5,27 +5,41 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-import static CoreManagement.DriverManager.getDriver;
+import static Common.CommonAction.getPropertyFromPropertiesFile;
 
-public class ActionManager {
+public class AbstractPage implements IPage {
+    private String loadingIconXpath = "//div[@class='owm-loader']";
 
+    private final RemoteWebDriver driver;
+
+    public AbstractPage(RemoteWebDriver driver) {
+        this.driver = driver;
+    }
+
+    @Override
+    public RemoteWebDriver getDriver() {
+        return driver;
+    }
+
+    // Driver Action
     private static int timeoutInSeconds = 60;
 
-    public static void navigateToUrl(String url) {
+    public void navigateToUrl(String url) {
         getDriver().get(url);
     }
 
-    public static WebElement findElementByXpath(String xpath) {
+    public WebElement findElementByXpath(String xpath) {
         WebElement ele = getDriver().findElement(By.xpath(xpath));
         return ele;
     }
 
-    public static WebElement waitElementDisplayByXpath(String xpath) {
+    public WebElement waitElementDisplayByXpath(String xpath) {
         WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSeconds);
         WebElement ele = wait.until(new ExpectedCondition<WebElement>() {
             public WebElement apply(WebDriver driver) {
@@ -35,7 +49,7 @@ public class ActionManager {
         return ele;
     }
 
-    public static boolean waitUntilElementDisplayByXpath(String xpath) {
+    public boolean waitUntilElementDisplayByXpath(String xpath) {
         getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSeconds);
         Boolean result;
@@ -59,7 +73,7 @@ public class ActionManager {
         return result;
     }
 
-    public static boolean waitUntilElementDisplayByXpath(String xpath, int timeOut) {
+    public boolean waitUntilElementDisplayByXpath(String xpath, int timeOut) {
         getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(getDriver(), timeOut);
         Boolean result;
@@ -83,7 +97,7 @@ public class ActionManager {
         return result;
     }
 
-    public static boolean waitUntilElementNotDisplayByXpath(String xpath) {
+    public boolean waitUntilElementNotDisplayByXpath(String xpath) {
         getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(getDriver(), timeoutInSeconds);
         Boolean result = wait.until(new ExpectedCondition<Boolean>() {
@@ -102,15 +116,36 @@ public class ActionManager {
         return result;
     }
 
-    public static void typeElement(WebElement ele, String value) {
+    public void typeElement(WebElement ele, String value) {
         if (ele.getTagName().equalsIgnoreCase("input")) {
             ele.sendKeys(value);
         }
     }
 
-    public static void pressHotkeys(WebElement ele, String hotkey) {
+    public void pressHotkeys(WebElement ele, String hotkey) {
         if (hotkey.equalsIgnoreCase("Enter")) {
             ele.sendKeys(Keys.ENTER);
         }
     }
+
+    // Get Function
+    public String getUrlByPage(String pageName) {
+        String url = "";
+        switch (pageName.toLowerCase()) {
+            case "main":
+                url = getPropertyFromPropertiesFile("config", "MAIN_URL");
+        }
+        return url;
+    }
+
+    // Action
+    public void navigateTo(String url) {
+        navigateToUrl(url);
+    }
+
+    public void waitForPageLoadCompleted() {
+        waitUntilElementDisplayByXpath(loadingIconXpath);
+        waitUntilElementNotDisplayByXpath(loadingIconXpath);
+    }
+
 }

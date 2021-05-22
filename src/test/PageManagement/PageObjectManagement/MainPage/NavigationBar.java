@@ -1,13 +1,16 @@
 package PageObjectManagement.MainPage;
 
-import PageDefinition.AbstractPageDefinition;
+import CoreManagement.AbstractPage;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-import static CoreManagement.ActionManager.*;
-
-public class NavigationBar extends AbstractPageDefinition {
+public class NavigationBar extends AbstractPage {
 
     private String navSearchBoxXpath = "//nav[@id='nav-website']//ul[@id='first-level-nav']//input[@type='text']";
+
+    public NavigationBar(RemoteWebDriver driver) {
+        super(driver);
+    }
 
     // Action
     public void typeIntoSearchBox(String value) {

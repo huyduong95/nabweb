@@ -1,11 +1,14 @@
 package PageObjectManagement.MainPage;
 
-import PageObjectManagement.AbstractPage;
+import CoreManagement.AbstractPage;
 import org.openqa.selenium.WebElement;
-
-import static CoreManagement.ActionManager.*;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class MainPage extends AbstractPage {
+
+    public MainPage(RemoteWebDriver driver) {
+        super(driver);
+    }
 
     // Action
     public void typeIntoTextBox(String textBoxType, String value) {

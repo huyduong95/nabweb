@@ -1,15 +1,18 @@
 package PageObjectManagement.ResultPage;
 
-import PageDefinition.AbstractPageDefinition;
+import CoreManagement.AbstractPage;
 import org.junit.Assert;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.Map;
 
-import static CoreManagement.ActionManager.waitUntilElementDisplayByXpath;
-
-public class ResultPage extends AbstractPageDefinition {
+public class ResultPage extends AbstractPage {
 
     private String recordCityXpath = "//div[@id='forecast_list_ul']//a[normalize-space(text())='%s']";
+
+    public ResultPage(RemoteWebDriver driver) {
+        super(driver);
+    }
 
     // Verify
     public void verifyRecordDisplayed(Map<String, String> record) {

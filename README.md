@@ -39,7 +39,7 @@ The Test will contain all the steps from
   
   -- **Common folder**: store all file which has common function in here (E.g: read proeperties file)
   
-  -- **Core Management folder:** Store setup driver, and all action reference with driver
+  -- **Core Management folder:** Store setup driver, and all action reference with driver, Iterface Page and Abstract Page
   
   -- **Page Definition folder**: Stroe all definition needed for Cucumber running 
   

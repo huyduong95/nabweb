@@ -20,7 +20,7 @@ If IntelliJ does not recognize PageManagement is Test Sources Root, please mark 
 
 In VM Command, please insert this command:
 
-    -ea Dcucumber.filter.tags="@NABTest"
+    -ea -Dcucumber.filter.tags="@NABTest"
 
 ** Note: You can replace the tag by the specificed Tag in feature file to run it.
 
@@ -64,7 +64,7 @@ The browser in the framework is only support Chrome and Firefox
 
 ** Note: There also has a another way to set Browser and Version by VM Command.
 
-    -ea -DBROWSER=Chrome -DVERSION=89 Dcucumber.filter.tags="@NABTest"
+    -ea -DBROWSER=Chrome -DVERSION=89 -Dcucumber.filter.tags="@NABTest"
 
 ## Report
 This framework using Allure Report.
